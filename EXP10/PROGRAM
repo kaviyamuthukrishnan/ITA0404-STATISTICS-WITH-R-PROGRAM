@@ -1,0 +1,44 @@
+# Create data frame
+exam_data <- data.frame(
+  name = c("John", "Mary", "David", "Anu"),
+  score = c(85, 92, 78, 95),
+  attempts = c(1, 2, 3, 1),
+  qualify = c(TRUE, TRUE, FALSE, TRUE)
+)
+
+# Display data frame
+print(exam_data)
+
+# Extract score column
+print(exam_data$score)
+
+# Extract first row
+print(exam_data[1, ])
+
+# Add new column
+exam_data$grade <- c("A", "A+", "B", "A+")
+
+print(exam_data)
+
+# Add new row
+new_student <- data.frame(
+  name = "Ravi",
+  score = 88,
+  attempts = 2,
+  qualify = TRUE,
+  grade = "A"
+)
+
+exam_data <- rbind(exam_data, new_student)
+
+print(exam_data)
+
+# Sort by score
+exam_data <- exam_data[order(exam_data$score, decreasing = TRUE), ]
+
+print(exam_data)
+
+# Save to CSV file
+write.csv(exam_data, "exam_data.csv", row.names = FALSE)
+
+print("Data saved successfully")
