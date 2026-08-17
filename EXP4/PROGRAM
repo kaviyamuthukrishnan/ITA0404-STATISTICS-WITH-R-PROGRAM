@@ -1,0 +1,19 @@
+# Create vector
+v <- 1:12
+
+# Dimension names
+row_names <- c("R1", "R2")
+col_names <- c("C1", "C2", "C3")
+table_names <- c("T1", "T2")
+
+# Create array
+arr <- array(v,
+             dim = c(2, 3, 2),
+             dimnames = list(row_names, col_names, table_names))
+
+# Display array
+print(arr)
+
+# Print specific elements
+print(arr["R1", "C2", "T1"])
+print(arr["R2", "C3", "T2"])
