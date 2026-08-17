@@ -1,0 +1,18 @@
+# Numeric vector
+num <- c(10, 20, 30, 40, 50)
+
+# Character vector
+char <- c("Apple", "Banana", "Mango", "Orange")
+
+# Logical vector
+logical <- c(TRUE, FALSE, TRUE, FALSE)
+
+# Display contents
+print(num)
+print(char)
+print(logical)
+
+# Display type
+print(typeof(num))
+print(typeof(char))
+print(typeof(logical))
