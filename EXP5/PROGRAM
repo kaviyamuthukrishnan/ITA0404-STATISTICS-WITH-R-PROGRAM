@@ -1,0 +1,23 @@
+# Create height data
+height <- c(150, 160, 155, 165, 170, 160, 155)
+
+# Convert height into factor
+height_factor <- factor(height)
+
+print(height_factor)
+
+# Display levels
+print(levels(height_factor))
+
+# Random LETTERS sample
+letters_sample <- sample(LETTERS, 10)
+
+print(letters_sample)
+
+# Convert letters into factor
+letter_factor <- factor(letters_sample)
+
+print(letter_factor)
+
+# Number of levels
+print(nlevels(letter_factor))
