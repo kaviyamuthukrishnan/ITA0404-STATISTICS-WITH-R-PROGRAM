@@ -1,0 +1,13 @@
+# Generate 100 random numbers
+x <- rnorm(100, mean = 50, sd = 10)
+
+# Round the values
+x <- round(x)
+
+# Display numbers
+print(x)
+
+# Count occurrences
+count <- table(x)
+
+print(count)
