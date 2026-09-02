@@ -1,0 +1,28 @@
+# Load dataset
+data(ChickWeight)
+
+# Display first records
+head(ChickWeight)
+
+# Sort by weight
+sorted_data <- ChickWeight[order(ChickWeight$weight), ]
+
+print(sorted_data)
+
+# Load reshape2
+# install.packages("reshape2")
+library(reshape2)
+
+# Melt the data
+melted <- melt(ChickWeight,
+               id.vars = c("Chick", "Time", "Diet"))
+
+print(head(melted))
+
+# Cast by Diet and calculate average weight
+casted <- dcast(ChickWeight,
+                Diet ~ Time,
+                value.var = "weight",
+                fun.aggregate = mean)
+
+print(casted)
