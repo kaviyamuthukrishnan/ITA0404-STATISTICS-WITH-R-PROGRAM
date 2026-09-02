@@ -1,0 +1,33 @@
+# Sample data
+x <- c(10, 20, 30, 40, 50)
+y <- c(15, 25, 20, 35, 45)
+
+# 1. Boxplot
+boxplot(y,
+        main = "Boxplot",
+        ylab = "Values")
+
+# 2. Histogram
+hist(y,
+     main = "Histogram",
+     xlab = "Values")
+
+# 3. Bar Plot
+barplot(y,
+        names.arg = x,
+        main = "Bar Plot",
+        xlab = "X",
+        ylab = "Y")
+
+# 4. Line Chart
+plot(x, y,
+     type = "l",
+     main = "Line Chart",
+     xlab = "X",
+     ylab = "Y")
+
+# 5. Scatter Plot
+plot(x, y,
+     main = "Scatter Plot",
+     xlab = "X",
+     ylab = "Y")
