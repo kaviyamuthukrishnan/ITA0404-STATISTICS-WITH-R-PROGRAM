@@ -1,0 +1,36 @@
+# Q20: Multiple Regression using ChickWeight
+
+# Load built-in dataset
+data(ChickWeight)
+
+# Display first few records
+print(head(ChickWeight))
+
+# Build multiple regression model
+model <- lm(weight ~ Time + Diet, data = ChickWeight)
+
+# Display model summary
+print(summary(model))
+
+# Predict weight for Time = 10 and Diet = 1
+new_data <- data.frame(
+  Time = 10,
+  Diet = factor(1, levels = levels(ChickWeight$Diet))
+)
+
+prediction <- predict(model, newdata = new_data)
+
+print("Predicted Weight:")
+print(prediction)
+
+# Calculate predicted values for all observations
+predicted <- predict(model)
+
+# Calculate errors
+MAE <- mean(abs(ChickWeight$weight - predicted))
+MSE <- mean((ChickWeight$weight - predicted)^2)
+RMSE <- sqrt(MSE)
+
+print(paste("MAE =", MAE))
+print(paste("MSE =", MSE))
+print(paste("RMSE =", RMSE))
