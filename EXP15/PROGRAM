@@ -1,0 +1,37 @@
+# Load iris dataset
+data(iris)
+
+# Dimensions
+print(dim(iris))
+
+# Summary
+print(summary(iris))
+
+# Standard deviation
+print(sapply(iris[1:4], sd))
+
+# Quantiles
+print(sapply(iris[1:4], quantile))
+
+# Grouping by Species
+print(aggregate(. ~ Species,
+                data = iris[, 1:4],
+                FUN = mean))
+
+# Pivot table
+print(table(iris$Species))
+
+# Create Sepal.Length categories
+iris$Sepal_Category <- cut(
+  iris$Sepal.Length,
+  breaks = c(0, 5, 6, 7, Inf),
+  labels = c("Short", "Medium", "Long", "Very Long")
+)
+
+# Display categories
+print(table(iris$Sepal_Category))
+
+# Group by category
+print(aggregate(Sepal.Length ~ Sepal_Category,
+                 data = iris,
+                 FUN = mean))
