@@ -1,0 +1,41 @@
+# Load dataset
+data(USArrests)
+
+# Summary statistics
+print(summary(USArrests))
+
+# State with largest rape arrests
+state_rape <- rownames(USArrests)[which.max(USArrests$Rape)]
+print(state_rape)
+
+# Maximum and minimum Murder rates
+max_murder <- max(USArrests$Murder)
+min_murder <- min(USArrests$Murder)
+
+print(max_murder)
+print(min_murder)
+
+# States with maximum and minimum murder
+print(rownames(USArrests)[which.max(USArrests$Murder)])
+print(rownames(USArrests)[which.min(USArrests$Murder)])
+
+# Correlation among features
+print(cor(USArrests))
+
+# States above median Assault
+median_assault <- median(USArrests$Assault)
+
+above_median <- USArrests[
+  USArrests$Assault > median_assault,
+]
+
+print(above_median)
+
+# Bottom 25% for Murder
+q25 <- quantile(USArrests$Murder, 0.25)
+
+bottom_25 <- USArrests[
+  USArrests$Murder <= q25,
+]
+
+print(bottom_25)
