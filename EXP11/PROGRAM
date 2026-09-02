@@ -1,0 +1,15 @@
+# Create sample data
+data <- data.frame(
+  Name = c("Kaviya", "Anu", "Ravi", "Priya"),
+  Age = c(20, 21, 20, 22),
+  Marks = c(85, 90, 78, 88)
+)
+
+# Save as CSV
+write.csv(data, "data.csv", row.names = FALSE)
+
+# Read CSV file
+data <- read.csv("data.csv")
+
+# Display contents
+print(data)
