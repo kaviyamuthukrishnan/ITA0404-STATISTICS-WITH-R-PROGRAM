@@ -1,0 +1,50 @@
+# Q17: Explore Titanic Dataset
+
+# Load Titanic dataset
+data(Titanic)
+
+# Convert Titanic table into data frame
+titanic_data <- as.data.frame(Titanic)
+
+# Display first few records
+print(head(titanic_data))
+
+# 1. Bar chart of Survival vs Class
+survival_class <- xtabs(Freq ~ Class + Survived,
+                        data = titanic_data)
+
+barplot(survival_class,
+        beside = TRUE,
+        main = "Survival vs Class",
+        xlab = "Class",
+        ylab = "Number of Passengers",
+        legend = TRUE)
+
+# 2. Bar chart of Survival vs Class by Gender
+survival_gender <- xtabs(Freq ~ Class + Survived + Sex,
+                         data = titanic_data)
+
+barplot(survival_gender[, , "Male"],
+        beside = TRUE,
+        main = "Male Survival by Class",
+        xlab = "Class",
+        ylab = "Number of Passengers",
+        legend = TRUE)
+
+barplot(survival_gender[, , "Female"],
+        beside = TRUE,
+        main = "Female Survival by Class",
+        xlab = "Class",
+        ylab = "Number of Passengers",
+        legend = TRUE)
+
+# 3. Display Age histogram
+# Built-in Titanic dataset has no Age column
+# Therefore, Age histogram requires a Titanic CSV file containing Age.
+
+# Example:
+# titanic <- read.csv("titanic.csv")
+# hist(titanic$Age,
+#      main = "Histogram of Passenger Age",
+#      xlab = "Age",
+#      ylab = "Frequency")
