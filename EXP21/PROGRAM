@@ -1,0 +1,51 @@
+# Q21: Logistic Regression on Iris Dataset
+
+# Load iris dataset
+data(iris)
+
+# Install nnet package if required
+# install.packages("nnet")
+
+library(nnet)
+
+# Display dataset
+print(head(iris))
+
+# Set seed for same result every time
+set.seed(123)
+
+# Split data into 80% training and 20% testing
+train_index <- sample(
+  1:nrow(iris),
+  size = 0.8 * nrow(iris)
+)
+
+train <- iris[train_index, ]
+test <- iris[-train_index, ]
+
+# Build multinomial logistic regression model
+model <- multinom(
+  Species ~ Petal.Length + Petal.Width,
+  data = train,
+  trace = FALSE
+)
+
+# Display model
+print(summary(model))
+
+# Predict Species
+predicted <- predict(model, newdata = test)
+
+# Confusion matrix
+confusion_matrix <- table(
+  Actual = test$Species,
+  Predicted = predicted
+)
+
+print("Confusion Matrix:")
+print(confusion_matrix)
+
+# Calculate accuracy
+accuracy <- mean(predicted == test$Species)
+
+print(paste("Accuracy =", accuracy))
