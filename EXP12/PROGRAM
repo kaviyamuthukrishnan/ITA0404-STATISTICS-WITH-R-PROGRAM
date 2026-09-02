@@ -1,0 +1,24 @@
+# Install and load reshape2
+# install.packages("reshape2")
+library(reshape2)
+
+# Load dataset
+data(airquality)
+
+# Remove missing values
+aq <- na.omit(airquality)
+
+# Melt the data
+melted <- melt(aq,
+               id.vars = c("Month", "Day"),
+               measure.vars = c("Ozone", "Solar.R", "Wind", "Temp"))
+
+print(melted)
+
+# Cast and calculate monthly averages
+monthly_avg <- dcast(melted,
+                     Month ~ variable,
+                     value.var = "value",
+                     fun.aggregate = mean)
+
+print(monthly_avg)
