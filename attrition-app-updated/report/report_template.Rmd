@@ -1,0 +1,73 @@
+---
+title: "AI-Powered Employee Attrition Prediction System"
+subtitle: "Executive Summary Report"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: pdf_document
+params:
+  raw_data: NA
+  validation: NA
+  trained_models: NA
+  bulk_results: NA
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+raw_data <- params$raw_data
+validation <- params$validation
+trained_models <- params$trained_models
+bulk_results <- params$bulk_results
+```
+
+## 1. Dataset Summary
+
+```{r}
+if (!is.null(raw_data)) {
+  cat("Total Employees:", nrow(raw_data), "\n")
+  cat("Total Features:", ncol(raw_data), "\n")
+  if ("Attrition" %in% names(raw_data)) {
+    cat("Attrition Rate:", round(mean(raw_data$Attrition == "Yes", na.rm = TRUE) * 100, 1), "%\n")
+  }
+}
+if (!is.null(validation)) {
+  cat("Dataset Quality Score:", validation$quality_score, "/100\n")
+}
+```
+
+## 2. Model Performance
+
+```{r}
+if (!is.null(trained_models) && length(trained_models) > 0) {
+  tbl <- do.call(rbind, lapply(names(trained_models), function(nm) {
+    m <- trained_models[[nm]]$metrics
+    data.frame(Model = nm, Accuracy = round(m$Accuracy, 3), Precision = round(m$Precision, 3),
+               Recall = round(m$Recall, 3), F1 = round(m$F1, 3), AUC = round(m$AUC, 3))
+  }))
+  knitr::kable(tbl)
+} else {
+  cat("No models trained yet.")
+}
+```
+
+## 3. Risk Predictions Summary
+
+```{r}
+if (!is.null(bulk_results)) {
+  cat("High Risk:", sum(bulk_results$RiskLabel == "High Risk"), "\n")
+  cat("Moderate Risk:", sum(bulk_results$RiskLabel == "Moderate Risk"), "\n")
+  cat("Low Risk:", sum(bulk_results$RiskLabel == "Low Risk"), "\n")
+} else {
+  cat("No bulk predictions run yet.")
+}
+```
+
+## 4. Recommendations
+
+Based on the risk analysis, HR teams should focus on:
+
+- Reducing mandatory overtime in high-risk departments
+- Reviewing compensation for employees below market salary bands
+- Strengthening onboarding and mentorship for employees in their first two years
+- Running regular employee engagement and satisfaction surveys
+
+---
+*Generated automatically by the AI-Powered Employee Attrition Prediction System.*

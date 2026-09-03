@@ -1,0 +1,91 @@
+body {
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: #f4f6f9;
+}
+
+.hero-banner {
+  background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.hero-banner h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.hero-banner p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+  margin-bottom: 24px;
+}
+
+.btn-hero {
+  background-color: white;
+  color: #3a0ca3;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.btn-hero:hover {
+  background-color: #f1f1f1;
+  color: #3a0ca3;
+}
+
+.benefit-box {
+  text-align: center;
+  padding: 20px 10px;
+}
+
+.benefit-box i {
+  font-size: 28px;
+  color: #4361ee;
+  margin-bottom: 10px;
+}
+
+.stat-box {
+  text-align: center;
+  background: #f8f9fc;
+  border-radius: 10px;
+  padding: 16px;
+  margin-bottom: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.stat-box h3 {
+  font-weight: 700;
+  color: #3a0ca3;
+  margin-bottom: 4px;
+}
+
+.stat-box p {
+  color: #6c757d;
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.team-card {
+  background: #f8f9fc;
+  border-radius: 10px;
+  padding: 18px;
+  height: 100%;
+  border: 1px solid #e9ecef;
+}
+
+.team-card h5 {
+  color: #3a0ca3;
+  font-weight: 700;
+}
+
+.card {
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
